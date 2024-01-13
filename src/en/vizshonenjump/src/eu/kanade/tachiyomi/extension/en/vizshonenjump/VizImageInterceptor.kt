@@ -65,7 +65,7 @@ class VizImageInterceptor : Interceptor {
 
     private fun Response.decodeImage(): ResponseBody {
         // See: https://stackoverflow.com/a/5924132
-        // See: https://github.com/tachiyomiorg/tachiyomi-extensions/issues/2678#issuecomment-645857603
+        // See: https://github.com/Zxis233/tachiyomi-extensions/issues/2678#issuecomment-645857603
         val byteOutputStream = ByteArrayOutputStream()
             .apply { body.byteStream().copyTo(this) }
         val contentType = headers["Content-Type"]?.toMediaType()

@@ -94,7 +94,7 @@ class GrrlPower(
                 setUrlWithoutDomain(link.attr("href"))
                 date_upload = date?.time ?: 0L
                 // chapter_number isn't set as suggested by arkon
-                // https://github.com/tachiyomiorg/tachiyomi-extensions/pull/15717#discussion_r1138014748
+                // https://github.com/Zxis233/tachiyomi-extensions/pull/15717#discussion_r1138014748
             }
         }
     }

@@ -2,7 +2,7 @@
 
 This guide have some instructions and tips on how to create a new Tachiyomi extension. Please **read it carefully** if you're a new contributor or don't have any experience on the required languages and knowledges.
 
-This guide is not definitive and it's being updated over time. If you find any issue on it, feel free to report it through a [Meta Issue](https://github.com/tachiyomiorg/tachiyomi-extensions/issues/new?assignees=&labels=Meta+request&template=request_meta.yml) or fixing it directly by submitting a Pull Request.
+This guide is not definitive and it's being updated over time. If you find any issue on it, feel free to report it through a [Meta Issue](https://github.com/Zxis233/tachiyomi-extensions/issues/new?assignees=&labels=Meta+request&template=request_meta.yml) or fixing it directly by submitting a Pull Request.
 
 ## Table of Contents
 
@@ -124,7 +124,7 @@ Some alternative steps can be followed to ignore "repo" branch and skip unrelate
 4. Configure remotes.
     ```bash
     # add upstream
-    git remote add upstream <tachiyomiorg-repo-url>
+    git remote add upstream <Zxis233-repo-url>
     # optionally disable push to upstream
     git remote set-url --push upstream no_pushing
     # ignore 'repo' branch of upstream
@@ -243,7 +243,7 @@ apply from: "$rootDir/common.gradle"
 | `pkgNameSuffix` | A unique suffix added to `eu.kanade.tachiyomi.extension`. The language and the site name should be enough. Remember your extension code implementation must be placed in this package. |
 | `extClass` | Points to the class that implements `Source`. You can use a relative path starting with a dot (the package name is the base path). This is used to find and instantiate the source(s). |
 | `extVersionCode` | The extension version code. This must be a positive integer and incremented with any change to the code. |
-| `libVersion` | (Optional, defaults to `1.4`) The version of the [extensions library](https://github.com/tachiyomiorg/extensions-lib) used. |
+| `libVersion` | (Optional, defaults to `1.4`) The version of the [extensions library](https://github.com/Zxis233/extensions-lib) used. |
 | `isNsfw` | (Optional, defaults to `false`) Flag to indicate that a source contains NSFW content. |
 
 The extension's version name is generated automatically by concatenating `libVersion` and `extVersionCode`. With the example used above, the version would be `1.4.1`.
@@ -252,11 +252,11 @@ The extension's version name is generated automatically by concatenating `libVer
 
 #### Extension API
 
-Extensions rely on [extensions-lib](https://github.com/tachiyomiorg/extensions-lib), which provides some interfaces and stubs from the [app](https://github.com/tachiyomiorg/tachiyomi) for compilation purposes. The actual implementations can be found [here](https://github.com/tachiyomiorg/tachiyomi/tree/master/app/src/main/java/eu/kanade/tachiyomi/source). Referencing the actual implementation will help with understanding extensions' call flow.
+Extensions rely on [extensions-lib](https://github.com/Zxis233/extensions-lib), which provides some interfaces and stubs from the [app](https://github.com/Zxis233/tachiyomi) for compilation purposes. The actual implementations can be found [here](https://github.com/Zxis233/tachiyomi/tree/master/app/src/main/java/eu/kanade/tachiyomi/source). Referencing the actual implementation will help with understanding extensions' call flow.
 
 #### DataImage library
 
-[`lib-dataimage`](https://github.com/tachiyomiorg/tachiyomi-extensions/tree/master/lib/dataimage) is a library for handling [base 64 encoded image data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) using an [OkHttp interceptor](https://square.github.io/okhttp/interceptors/).
+[`lib-dataimage`](https://github.com/Zxis233/tachiyomi-extensions/tree/master/lib/dataimage) is a library for handling [base 64 encoded image data](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) using an [OkHttp interceptor](https://square.github.io/okhttp/interceptors/).
 
 ```gradle
 dependencies {
@@ -266,7 +266,7 @@ dependencies {
 
 #### i18n library
 
-[`lib-i18n`](https://github.com/tachiyomiorg/tachiyomi-extensions/tree/master/lib/i18n) is a library for handling internationalization in the sources. It allows loading `.properties` files with messages located under the `assets/i18n` folder of each extension, that can be used to translate strings under the source.
+[`lib-i18n`](https://github.com/Zxis233/tachiyomi-extensions/tree/master/lib/i18n) is a library for handling internationalization in the sources. It allows loading `.properties` files with messages located under the `assets/i18n` folder of each extension, that can be used to translate strings under the source.
 
 ```gradle
 dependencies {
@@ -277,7 +277,7 @@ dependencies {
 #### Additional dependencies
 
 If you find yourself needing additional functionality, you can add more dependencies to your `build.gradle` file.
-Many of [the dependencies](https://github.com/tachiyomiorg/tachiyomi/blob/master/app/build.gradle.kts) from the main Tachiyomi app are exposed to extensions by default.
+Many of [the dependencies](https://github.com/Zxis233/tachiyomi/blob/master/app/build.gradle.kts) from the main Tachiyomi app are exposed to extensions by default.
 
 > [!NOTE]
 > Several dependencies are already exposed to all extensions via Gradle's version catalog.
@@ -286,7 +286,7 @@ Many of [the dependencies](https://github.com/tachiyomiorg/tachiyomi/blob/master
 Notice that we're using `compileOnly` instead of `implementation` if the app already contains it. You could use `implementation` instead for a new dependency, or you prefer not to rely on whatever the main app has at the expense of app size.
 
 > [!IMPORTANT]
-> Using `compileOnly` restricts you to versions that must be compatible with those used in [the latest stable version of Tachiyomi](https://github.com/tachiyomiorg/tachiyomi/releases/latest).
+> Using `compileOnly` restricts you to versions that must be compatible with those used in [the latest stable version of Tachiyomi](https://github.com/Zxis233/tachiyomi/releases/latest).
 
 ### Extension main class
 
@@ -333,7 +333,7 @@ a.k.a. the Latest source entry point in the app (invoked by tapping on the "Late
 
 ##### Filters
 
-The search flow have support to filters that can be added to a `FilterList` inside the `getFilterList` method. When the user changes the filters' state, they will be passed to the `searchRequest`, and they can be iterated to create the request (by getting the `filter.state` value, where the type varies depending on the `Filter` used). You can check the filter types available [here](https://github.com/tachiyomiorg/tachiyomi/blob/master/source-api/src/commonMain/kotlin/eu/kanade/tachiyomi/source/model/Filter.kt) and in the table below.
+The search flow have support to filters that can be added to a `FilterList` inside the `getFilterList` method. When the user changes the filters' state, they will be passed to the `searchRequest`, and they can be iterated to create the request (by getting the `filter.state` value, where the type varies depending on the `Filter` used). You can check the filter types available [here](https://github.com/Zxis233/tachiyomi/blob/master/source-api/src/commonMain/kotlin/eu/kanade/tachiyomi/source/model/Filter.kt) and in the table below.
 
 | Filter | State type | Description |
 | ------ | ---------- | ----------- |
@@ -364,7 +364,7 @@ open class UriPartFilter(displayName: String, private val vals: Array<Pair<Strin
 - `getMangaDetails` is called to update a manga's details from when it was initialized earlier.
     - `SManga.initialized` tells the app if it should call `getMangaDetails`. If you are overriding `getMangaDetails`, make sure to pass it as `true`.
     - `SManga.genre` is a string containing list of all genres separated with `", "`.
-    - `SManga.status` is an "enum" value. Refer to [the values in the `SManga` companion object](https://github.com/tachiyomiorg/extensions-lib/blob/master/library/src/main/java/eu/kanade/tachiyomi/source/model/SManga.kt#L24).
+    - `SManga.status` is an "enum" value. Refer to [the values in the `SManga` companion object](https://github.com/Zxis233/extensions-lib/blob/master/library/src/main/java/eu/kanade/tachiyomi/source/model/SManga.kt#L24).
     - During a backup, only `url` and `title` are stored. To restore the rest of the manga data, the app calls `getMangaDetails`, so all fields should be (re)filled in if possible.
     - If a `SManga` is cached, `getMangaDetails` will be only called when the user does a manual update (Swipe-to-Refresh).
 - `getChapterList` is called to display the chapter list.
@@ -396,7 +396,7 @@ open class UriPartFilter(displayName: String, private val vals: Array<Pair<Strin
       Make sure you make the `SimpleDateFormat` a class constant or variable so it doesn't get recreated for every chapter. If you need to parse or format dates in manga description, create another instance since `SimpleDateFormat` is not thread-safe.
     - If the parsing have any problem, make sure to return `0L` so the app will use the default date instead.
     - The app will overwrite dates of existing old chapters **UNLESS** `0L` is returned.
-    - The default date has [changed](https://github.com/tachiyomiorg/tachiyomi/pull/7197) in preview ≥ r4442 or stable > 0.13.4.
+    - The default date has [changed](https://github.com/Zxis233/tachiyomi/pull/7197) in preview ≥ r4442 or stable > 0.13.4.
       - In older versions, the default date is always the fetch date.
       - In newer versions, this is the same if every (new) chapter has `0L` returned.
       - However, if the source only provides the upload date of the latest chapter, you can now set it to the latest chapter and leave other chapters default. The app will automatically set it (instead of fetch date) to every new chapter and leave old chapters' dates untouched.
@@ -425,7 +425,7 @@ open class UriPartFilter(displayName: String, private val vals: Array<Pair<Strin
 #### URL intent filter
 
 Extensions can define URL intent filters by defining it inside a custom `AndroidManifest.xml` file.
-For an example, refer to [the NHentai module's `AndroidManifest.xml` file](https://github.com/tachiyomiorg/tachiyomi-extensions/blob/master/src/all/nhentai/AndroidManifest.xml) and [its corresponding `NHUrlActivity` handler](https://github.com/tachiyomiorg/tachiyomi-extensions/blob/master/src/all/nhentai/src/eu/kanade/tachiyomi/extension/all/nhentai/NHUrlActivity.kt).
+For an example, refer to [the NHentai module's `AndroidManifest.xml` file](https://github.com/Zxis233/tachiyomi-extensions/blob/master/src/all/nhentai/AndroidManifest.xml) and [its corresponding `NHUrlActivity` handler](https://github.com/Zxis233/tachiyomi-extensions/blob/master/src/all/nhentai/src/eu/kanade/tachiyomi/extension/all/nhentai/NHUrlActivity.kt).
 
 To test if the URL intent filter is working as expected, you can try opening the website in a browser and navigating to the endpoint that was added as a filter or clicking a hyperlink. Alternatively, you can use the `adb` command below.
 
@@ -454,7 +454,7 @@ If not set, it defaults to `ALWAYS_UPDATE`.
 
 There is some cases where existing sources changes their name on the website. To correctly reflect these changes in the extension, you need to explicity set the `id` to the same old value, otherwise it will get changed by the new `name` value and users will be forced to migrate back to the source.
 
-To get the current `id` value before the name change, you can search the source name in the [repository JSON file](https://github.com/tachiyomiorg/tachiyomi-extensions/blob/repo/index.json) by looking into the `sources` attribute of the extension. When you have the `id` copied, you can override it in the source:
+To get the current `id` value before the name change, you can search the source name in the [repository JSON file](https://github.com/Zxis233/tachiyomi-extensions/blob/repo/index.json) by looking into the `sources` attribute of the extension. When you have the `id` copied, you can override it in the source:
 
 ```kotlin
 override val id: Long = <the-id>

@@ -99,7 +99,7 @@ class ScantradUnion : ParsedHttpSource() {
             }
             // Since June 2021, webtoon html has both elements sometimes (data-src and src)
             // So there are duplicates when fetching pages
-            // https://github.com/tachiyomiorg/tachiyomi-extensions/issues/7694
+            // https://github.com/Zxis233/tachiyomi-extensions/issues/7694
             // The distinct() prevent this problem when it happens
             .distinct()
             .mapIndexed { index: Int, imgUrl: String ->

@@ -40,8 +40,8 @@ import kotlin.math.pow
 
 /**
  * [Project Suki](https://projectsuki.com)
- * [Tachiyomi](https://github.com/tachiyomiorg/tachiyomi)
- * [extension](https://github.com/tachiyomiorg/tachiyomi-extensions)
+ * [Tachiyomi](https://github.com/Zxis233/tachiyomi)
+ * [extension](https://github.com/Zxis233/tachiyomi-extensions)
  *
  * Most of the code should be documented, `@author` KDoc tags are mostly to know
  * who to bother *when necessary*.
@@ -146,7 +146,7 @@ internal val HttpUrl.rawRelative: String?
     }
 
 internal val reportPrefix: String
-    get() = """Error! Report on GitHub (tachiyomiorg/tachiyomi-extensions)"""
+    get() = """Error! Report on GitHub (Zxis233/tachiyomi-extensions)"""
 
 /**
  * Simple named exception to differentiate it with all other "unexpected" exceptions.
@@ -204,7 +204,7 @@ class ProjectSuki : HttpSource(), ConfigurableSource {
     /**
      * [OkHttp's](https://square.github.io/okhttp/) [OkHttpClient] that handles network requests and responses.
      *
-     * Thanks to Tachiyomi's [NetworkHelper](https://github.com/tachiyomiorg/tachiyomi/blob/58daedc89ee18d04e7af5bab12629680dba4096c/core/src/main/java/eu/kanade/tachiyomi/network/NetworkHelper.kt#L21C12-L21C12)
+     * Thanks to Tachiyomi's [NetworkHelper](https://github.com/Zxis233/tachiyomi/blob/58daedc89ee18d04e7af5bab12629680dba4096c/core/src/main/java/eu/kanade/tachiyomi/network/NetworkHelper.kt#L21C12-L21C12)
      * (this is a permalink, check for updated version),
      * most client options are already set as they should be, including the [Cache][okhttp3.Cache].
      */
@@ -288,7 +288,7 @@ class ProjectSuki : HttpSource(), ConfigurableSource {
      * [SManga]'s url should be in relative form, see [this SO answer](https://stackoverflow.com/a/21828923)
      * for a comprehensive difference between relative and absolute URLs.
      *
-     * [SManga]'s thumbnail_url should instead be in absolute form. If possible [it should be set](https://github.com/tachiyomiorg/tachiyomi-extensions/blob/master/CONTRIBUTING.md#popular-manga)
+     * [SManga]'s thumbnail_url should instead be in absolute form. If possible [it should be set](https://github.com/Zxis233/tachiyomi-extensions/blob/master/CONTRIBUTING.md#popular-manga)
      * at this point to avoid additional server requests. But if that is not possible, [fetchMangaDetails] will be called to fill in the details.
      */
     override fun popularMangaParse(response: Response): MangasPage {

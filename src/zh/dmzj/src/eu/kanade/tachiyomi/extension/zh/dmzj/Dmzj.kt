@@ -185,7 +185,7 @@ class Dmzj : ConfigurableSource, HttpSource() {
         throw UnsupportedOperationException()
     }
 
-    // see https://github.com/tachiyomiorg/tachiyomi-extensions/issues/10475
+    // see https://github.com/Zxis233/tachiyomi-extensions/issues/10475
     override fun imageRequest(page: Page): Request {
         val url = page.url.takeIf { it.isNotEmpty() }
         val imageUrl = page.imageUrl!!

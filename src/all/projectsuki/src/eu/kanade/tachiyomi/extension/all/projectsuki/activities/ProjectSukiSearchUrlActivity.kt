@@ -18,22 +18,22 @@ private inline val INFO: Nothing get() = error("INFO")
 internal const val INTENT_SEARCH_QUERY_PREFIX: String = """${'$'}$SHORT_FORM_ID-search:"""
 
 /**
- * See [handleIntentAction](https://github.com/tachiyomiorg/tachiyomi/blob/0f9895eec8f5808210f291d1e0ef5cc9f73ccb44/app/src/main/java/eu/kanade/tachiyomi/ui/main/MainActivity.kt#L401)
- * and [GlobalSearchScreen](https://github.com/tachiyomiorg/tachiyomi/blob/0f9895eec8f5808210f291d1e0ef5cc9f73ccb44/app/src/main/java/eu/kanade/tachiyomi/ui/browse/source/globalsearch/GlobalSearchScreen.kt#L19)
+ * See [handleIntentAction](https://github.com/Zxis233/tachiyomi/blob/0f9895eec8f5808210f291d1e0ef5cc9f73ccb44/app/src/main/java/eu/kanade/tachiyomi/ui/main/MainActivity.kt#L401)
+ * and [GlobalSearchScreen](https://github.com/Zxis233/tachiyomi/blob/0f9895eec8f5808210f291d1e0ef5cc9f73ccb44/app/src/main/java/eu/kanade/tachiyomi/ui/browse/source/globalsearch/GlobalSearchScreen.kt#L19)
  * (these are permalinks, search for updated variants).
  *
  * See [AndroidManifest.xml](https://developer.android.com/guide/topics/manifest/manifest-intro)
  * for what URIs this [Activity](https://developer.android.com/guide/components/activities/intro-activities)
  * can receive.
  *
- * For this specific class you can test the activity by doing (see [CONTRIBUTING](https://github.com/tachiyomiorg/tachiyomi-extensions/blob/master/CONTRIBUTING.md#url-intent-filter)):
+ * For this specific class you can test the activity by doing (see [CONTRIBUTING](https://github.com/Zxis233/tachiyomi-extensions/blob/master/CONTRIBUTING.md#url-intent-filter)):
  * ```
  * adb shell am start -d "https://projectsuki.com/search?q=omniscient" -a android.intent.action.VIEW
  * ```
  *
  * If multiple devices are present, [see this answer](https://stackoverflow.com/a/14655015)
  *
- * Note that Tachiyomi extension's UrlActivities [do not have access to the Kotlin environment](https://github.com/tachiyomiorg/tachiyomi-extensions/pull/19323#issuecomment-1858932113)
+ * Note that Tachiyomi extension's UrlActivities [do not have access to the Kotlin environment](https://github.com/Zxis233/tachiyomi-extensions/pull/19323#issuecomment-1858932113)
  * (specifically Intrinsics).
  * To avoid using Java, multiple classes have been provided for different URLs.
  *
