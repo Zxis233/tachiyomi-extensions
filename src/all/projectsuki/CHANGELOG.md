@@ -7,7 +7,7 @@
 - add activities to handle /book and /read URLs (search/ was already present)
 - handle /book and /read urls as search query
 
-## Version 1.4.2
+## Version 1.4.4
 
 - Improved search feature
 - New and improved Popular tab
